@@ -2,7 +2,7 @@
 <html lang="sl">
 <head>
   <meta charset="UTF-8">
-  <title>Asistent RM – Slovenska virtualna tajnica</title>
+  <title>Asistent RM – Virtualna telefonska tajnica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -45,7 +45,7 @@
       text-decoration: underline;
     }
 
-    /* HERO SEKCIJA */
+    /* HERO */
     .hero {
       background: linear-gradient(135deg, #1f2933, #3b82f6);
       color: white;
@@ -53,7 +53,7 @@
       text-align: center;
     }
     .hero h1 {
-      font-size: 32px;
+      font-size: 30px;
       margin-bottom: 15px;
     }
     .hero p {
@@ -74,7 +74,7 @@
       opacity: 0.9;
     }
 
-    /* SEKCIJE */
+    /* KARTICE */
     section {
       padding: 40px 0;
     }
@@ -94,23 +94,6 @@
       margin-top: 0;
     }
 
-    /* KONTAKT */
-    .kontakt-box {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      max-width: 400px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .kontakt-box a {
-      color: #3b82f6;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    /* NOGA */
     footer {
       text-align: center;
       padding: 15px 0;
@@ -127,8 +110,7 @@
       <div class="logo">Asistent RM</div>
       <nav>
         <a href="index.html">Domov</a>
-        <a href="storitve.html">Storitve</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="kontakti.html">Kontakti</a>
       </nav>
     </div>
   </header>
@@ -136,73 +118,34 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <h1>Slovenska virtualna tajnica za vaš posel</h1>
-      <p>Asistent RM je zanesljiva virtualna tajnica, ki skrbi za klice, e-pošto in organizacijo, da se vi lahko posvetite svojemu delu.</p>
-      <a href="#kontakt" class="btn">Pošlji povpraševanje</a>
-    </div>
-  </section>
-
-  <!-- ZAKAJ MI -->
-  <section>
-    <div class="container">
-      <h2>Zakaj Asistent RM?</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Slovenska podpora</h3>
-          <p>Komunikacija v slovenskem jeziku, prilagojena vašim strankam in vašemu načinu dela.</p>
-        </div>
-        <div class="card">
-          <h3>Prihranek časa</h3>
-          <p>Mi prevzamemo administracijo, vi se osredotočite na storitve in stranke.</p>
-        </div>
-        <div class="card">
-          <h3>Fleksibilnost</h3>
-          <p>Plačate samo za dejanski obseg dela – brez stroškov zaposlitve in opreme.</p>
-        </div>
-      </div>
+      <h1>Virtualna telefonska tajnica Asistent RM</h1>
+      <p>Sprejemamo vaše telefonske klice v slovenščini in za vas vpisujemo termine neposredno v koledar, da nič pomembnega ne uide.</p>
+      <a href="kontakti.html" class="btn">Želim, da prevzamete moje klice</a>
     </div>
   </section>
 
   <!-- KAJ DELAMO -->
   <section>
     <div class="container">
-      <h2>Kaj vam lahko prevzamemo?</h2>
+      <h2>Kako vam pomagamo</h2>
       <div class="cards">
         <div class="card">
-          <h3>Telefonski klici</h3>
-          <p>Sprejem klicev, zapis sporočil, filtriranje nujnih zadev in prevezave.</p>
+          <h3>Sprejem telefonskih klicev</h3>
+          <p>Prevzamemo klice vaših strank, zapišemo sporočila in vas po potrebi obvestimo po dogovorjenem kanalu.</p>
         </div>
         <div class="card">
-          <h3>E-pošta in koledar</h3>
-          <p>Odgovarjanje na e-pošto, razvrščanje, vodenje koledarja in terminov.</p>
+          <h3>Vpis v koledar</h3>
+          <p>Po vaših pravilih vpisujemo dogovorjene termine v koledar (npr. pregledi, sestanki, posveti), da je vaš urnik vedno urejen.</p>
         </div>
-        <div class="card">
-          <h3>Administrativna podpora</h3>
-          <p>Osnovna priprava dokumentov, opomniki, vnos podatkov in ostale admin naloge.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KONTAKT -->
-  <section id="kontakt">
-    <div class="container">
-      <h2>Kontakt</h2>
-      <div class="kontakt-box">
-        <p>Želite ponudbo ali več informacij o virtualni tajnici Asistent RM?</p>
-        <p>Pišite nam na:</p>
-        <p><a href="mailto:info@asistentrm.si">info@asistentrm.si</a></p>
-        <p>ali izpolnite obrazec, ki vam ga pošljemo po e-pošti.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    © <span id="year"></span> Asistent RM – Slovenska virtualna tajnica
+    © <span id="year"></span> Asistent RM – Virtualna telefonska tajnica
   </footer>
 
   <script>
-    // nastavi leto v nogi
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
