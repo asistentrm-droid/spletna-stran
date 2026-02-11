@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <title>Kontakti – Asistent RM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: #1f2933;
+      color: white;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 14px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 40px 0;
+    }
+    .box {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    p {
+      margin-top: 0;
+    }
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      font-size: 13px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- GLAVA + MENI -->
+  <header>
+    <div class="container nav">
+      <div class="logo">Asistent RM</div>
+      <nav>
+        <a href="index.html">Domov</a>
+        <a href="kontakti.html">Kontakti</a>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h1>Kontakti</h1>
+      <div class="box">
+        <p>Za sodelovanje z virtualno telefonsko tajnico Asistent RM nas kontaktirajte:</p>
+
+        <p><strong>Telefon:</strong> <a href="tel:+38640123456">+386 68 660 690</a></p>
+        <p><strong>E-pošta:</strong> <a href="mailto:info@asistentrm.si">info@asistentrm.org</a></p>
+
+        <p><strong>Delovni čas klicev:</strong></p>
+        <ul>
+          <li>ponedeljek – Nedelja: 8:00–16:00</li>
+          <li>sprejem klicev za vaše podjetje po dogovoru</li>
+        </ul>
+
+        <p><strong>Kaj naredimo ob klicu:</strong></p>
+        <ul>
+          <li>prevzamemo klic v imenu vašega podjetja,</li>
+          <li>zapišemo sporočilo ali podatke stranke,</li>
+          <li>po vaših navodilih vpišemo termin v vaš koledar.</li>
+        </ul>
+
+        <p>Pošljite nam kratek opis vašega podjetja in kako naj ravnamo s klici, mi pa vam pripravimo predlog sodelovanja.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Asistent RM –  2026 Koper*
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
