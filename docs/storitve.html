@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <title>Storitve – Asistent RM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: #1f2933;
+      color: white;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 14px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 40px 0;
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+    .blok {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .nazaj {
+      margin-top: 20px;
+      display: inline-block;
+      text-decoration: none;
+      color: #3b82f6;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .nazaj:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      font-size: 13px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- GLAVA + MENI -->
+  <header>
+    <div class="container nav">
+      <div class="logo">Asistent RM</div>
+      <nav>
+        <a href="index.html">Domov</a>
+        <a href="storitve.html">Storitve</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h1>Storitve virtualne tajnice</h1>
+      <p>Asistent RM ponuja prilagodljivo virtualno tajništvo za samostojne podjetnike, manjša podjetja in ekipe, ki potrebujejo zanesljivo podporo brez zaposlovanja dodatne osebe.</p>
+
+      <div class="blok">
+        <h2>Telefonska tajnica</h2>
+        <ul>
+          <li>sprejem in filtriranje klicev</li>
+          <li>zapis sporočil in pošiljanje povzetkov</li>
+          <li>prevezava pomembnih klicev</li>
+          <li>dogovarjanje terminov po vaših navodilih</li>
+        </ul>
+      </div>
+
+      <div class="blok">
+        <h2>E-poštna podpora in koledar</h2>
+        <ul>
+          <li>osnovno odgovarjanje na pogosto vprašanja</li>
+          <li>razvrščanje pošte in označevanje prioritet</li>
+          <li>vodenje koledarja in vpis terminov</li>
+          <li>opomniki za pomembne dogodke in roke</li>
+        </ul>
+      </div>
+
+      <div class="blok">
+        <h2>Administrativna pomoč</h2>
+        <ul>
+          <li>priprava enostavnih dokumentov in preglednic</li>
+          <li>vnos podatkov in osnovno urejanje</li>
+          <li>pošiljanje opomnikov strankam</li>
+          <li>ostale manjše admin naloge po dogovoru</li>
+        </ul>
+      </div>
+
+      <div class="blok">
+        <h2>Kako poteka sodelovanje?</h2>
+        <ol>
+          <li>Skupaj definiramo, kaj potrebujete (klici, e-pošta, koledar …).</li>
+          <li>Dogovorimo se za obseg ur in način poročanja.</li>
+          <li>Asistent RM začne z delom, vi sproti dobivate povzetke.</li>
+        </ol>
+      </div>
+
+      <a class="nazaj" href="index.html#kontakt">← Želim ponudbo / kontakt</a>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Asistent RM – Slovenska virtualna tajnica
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
