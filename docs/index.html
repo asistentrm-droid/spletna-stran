@@ -1,343 +1,185 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-  <meta charset="UTF-8">
-  <title>Asistent RM – Virtualna telefonska tajnica</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asistent RM</title>
 
-  <style>
-    /* OSNOVNO – ČRNO / BELO, BREZ CIRKUSA */
-    * { box-sizing: border-box; }
+<style>
+* { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      background: #ffffff;
-      color: #111111;
-    }
+body {
+  margin: 0;
+  font-family: -apple-system, system-ui, sans-serif;
+  background: #ffffff;
+  color: #111;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+/* NAV */
+header {
+  padding: 18px 24px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    /* KONTEJNER */
-    .page {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 24px 16px 48px 16px;
-    }
+header img {
+  height: 46px;   /* večji logo */
+}
 
-    /* NAVBAR – ZELO ENOSTAVEN */
-    header {
-      border-bottom: 1px solid #e5e5e5;
-      margin-bottom: 32px;
-    }
-    .nav {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .nav-left img {
-      height: 28px;
-      width: auto;
-      display: block;
-    }
-    .nav-name {
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .nav-links {
-      display: flex;
-      gap: 16px;
-      font-size: 14px;
-      opacity: 0.7;
-    }
-    .nav-links a:hover {
-      opacity: 1;
-    }
+nav a {
+  margin-left: 20px;
+  font-size: 14px;
+  opacity: 0.7;
+}
 
-    /* HERO – 2 STOLPCA NA DESKTOP, 1 NA MOBILU */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 32px;
-      align-items: center;
-    }
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-    }
+nav a:hover {
+  opacity: 1;
+}
 
-    .eyebrow {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      opacity: 0.6;
-      margin-bottom: 8px;
-    }
-    h1 {
-      margin: 0 0 12px 0;
-      font-size: 30px;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-    }
-    .subtitle {
-      font-size: 15px;
-      opacity: 0.8;
-      margin-bottom: 20px;
-      max-width: 420px;
-    }
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    @media (max-width: 800px) {
-      .subtitle {
-        max-width: none;
-      }
-      .actions {
-        justify-content: flex-start;
-      }
-    }
+/* HERO */
+.hero {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: #111111;
-      color: #ffffff;
-      font-size: 14px;
-      border: 1px solid #111111;
-      cursor: pointer;
-    }
-    .btn-primary:hover {
-      background: #000000;
-    }
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
 
-    .btn-text {
-      font-size: 14px;
-      opacity: 0.75;
-    }
+h1 {
+  font-size: 36px;
+  line-height: 1.15;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
 
-    .note {
-      font-size: 12px;
-      opacity: 0.6;
-      margin-top: 6px;
-    }
+.subtitle {
+  font-size: 16px;
+  opacity: 0.7;
+  margin-bottom: 28px;
+}
 
-    /* DESNI DEL – ZELO ENOSTAVEN PROCES (3 KROGI) */
-    .process-box {
-      border: 1px solid #e5e5e5;
-      border-radius: 20px;
-      padding: 18px 18px 16px 18px;
-    }
-    .process-title {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 14px;
-      opacity: 0.8;
-    }
-    .process-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .process-step {
-      flex: 1;
-      text-align: center;
-    }
-    .circle {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid #d4d4d4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 6px auto;
-      font-size: 14px;
-    }
-    .circle-logo {
-      background: #111111;
-      color: #ffffff;
-      border-color: #111111;
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-    }
-    .step-label {
-      font-size: 11px;
-      opacity: 0.7;
-    }
-    .arrow {
-      font-size: 16px;
-      opacity: 0.35;
-    }
-    .process-caption {
-      margin-top: 10px;
-      font-size: 11px;
-      opacity: 0.7;
-      text-align: center;
-    }
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 14px;
+}
 
-    /* POD HERO: 3 PREDNOSTI – BREZ KARTIC, BREZ BARV */
-    .section {
-      margin-top: 40px;
-    }
-    .section h2 {
-      font-size: 18px;
-      margin: 0 0 12px 0;
-      letter-spacing: -0.02em;
-    }
-    .benefit-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      font-size: 14px;
-    }
-    .benefit {
-      border: 1px solid #e5e5e5;
-      border-radius: 14px;
-      padding: 12px 14px;
-    }
-    .benefit-title {
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-    .benefit-text {
-      opacity: 0.8;
-      line-height: 1.4;
-    }
+/* PROCESS BOX */
+.process {
+  border: 1px solid #eee;
+  border-radius: 24px;
+  padding: 40px 20px;
+  text-align: center;
+}
 
-    /* NOGA */
-    footer {
-      border-top: 1px solid #e5e5e5;
-      margin-top: 40px;
-      padding: 14px 16px 22px 16px;
-      font-size: 12px;
-      text-align: center;
-      opacity: 0.6;
-    }
-  </style>
+.steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle.logo {
+  background: #111;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* PLACEHOLDER ZA SLIKO */
+.placeholder {
+  height: 200px;
+  border: 1px dashed #ccc;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  font-size: 13px;
+}
+
+footer {
+  margin-top: 80px;
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.5;
+}
+</style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header>
-    <div class="nav">
-      <div class="nav-left">
-        <!-- če ima tvoja logo slika drugo ime, tu zamenjaš src -->
-        <img src="logo-rm.png" alt="Asistent RM">
-        <div class="nav-name">ASISTENT RM</div>
-      </div>
-      <div class="nav-links">
-        <a href="/">Domov</a>
-        <a href="kontakti.html">Kontakti</a>
-      </div>
+<header>
+  <img src="asistentrm-logo.png" alt="Asistent RM">
+  <nav>
+    <a href="/">Domov</a>
+    <a href="kontakti.html">Kontakti</a>
+  </nav>
+</header>
+
+<section class="hero">
+
+  <div>
+    <h1>Klice prevzamemo mi.<br>Termini so v vašem koledarju.</h1>
+    <div class="subtitle">
+      Virtualna telefonska tajnica za podjetja, ki želijo mir in urejen urnik.
     </div>
-  </header>
-
-  <!-- GLAVNI DEL -->
-  <div class="page">
-    <section class="hero">
-      <!-- LEVO: ZELO MALO TEKSTA -->
-      <div>
-        <div class="eyebrow">Virtualna telefonska tajnica</div>
-        <h1>Klice sprejmemo mi. Termini so v vašem koledarju.</h1>
-
-        <p class="subtitle">
-          Stranke kličejo, vi delate naprej. Asistent RM sprejme klic, zbere podatke in po vaših pravilih vnese termin v koledar.
-        </p>
-
-        <div class="actions">
-          <a href="kontakti.html" class="btn-primary">Želim, da prevzamete moje klice</a>
-          <span class="btn-text">ali pokličite nas, da se pogovorimo.</span>
-        </div>
-
-        <div class="note">
-          Ni nove številke, ni nove opreme. Preusmerite klice, ostalo prevzamemo mi.
-        </div>
-      </div>
-
-      <!-- DESNO: MINIMALNI PROCES -->
-      <div>
-        <div class="process-box">
-          <div class="process-title">Od klica do termina</div>
-          <div class="process-row">
-            <div class="process-step">
-              <div class="circle">📞</div>
-              <div class="step-label">Stranka kliče</div>
-            </div>
-            <div class="arrow">→</div>
-            <div class="process-step">
-              <div class="circle circle-logo">RM</div>
-              <div class="step-label">Asistent RM</div>
-            </div>
-            <div class="arrow">→</div>
-            <div class="process-step">
-              <div class="circle">📅</div>
-              <div class="step-label">Termin v koledarju</div>
-            </div>
-          </div>
-          <div class="process-caption">
-            Klic sprejmemo v vašem imenu in vnesemo dogovorjen termin v vaš koledar (npr. Google koledar).
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PREDNOSTI – SAMO TRI, BREZ ROMANOV -->
-    <section class="section">
-      <h2>Zakaj Asistent RM?</h2>
-      <div class="benefit-list">
-        <div class="benefit">
-          <div class="benefit-title">Manj prekinitev</div>
-          <div class="benefit-text">
-            Klici ne prekinjajo več vašega dela. Mi jih sprejmemo, filtriramo in vam posredujemo bistvo.
-          </div>
-        </div>
-        <div class="benefit">
-          <div class="benefit-title">Urejen koledar</div>
-          <div class="benefit-text">
-            Dogovorjene termine vnesemo neposredno v vaš koledar, da vedno veste, kaj vas čaka.
-          </div>
-        </div>
-        <div class="benefit">
-          <div class="benefit-title">Slovenska podpora</div>
-          <div class="benefit-text">
-            Komunikacija v slovenskem jeziku in tonu, ki ustreza vašemu podjetju in vašim strankam.
-          </div>
-        </div>
-      </div>
-    </section>
+    <a href="kontakti.html" class="btn">Začnimo</a>
   </div>
 
-  <footer>
-    © <span id="year"></span> Asistent RM – Virtualna telefonska tajnica
-  </footer>
+  <div class="process">
+    <div class="steps">
+      <div class="circle">📞</div>
+      →
+      <div class="circle logo">RM</div>
+      →
+      <div class="circle">📅</div>
+    </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <!-- PROSTOR ZA JUTRIŠNJO SLIKO -->
+    <div class="placeholder">
+      Prostor za dodatno grafiko
+    </div>
+  </div>
+
+</section>
+
+<footer>
+© <span id="year"></span> Asistent RM
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
+
 
