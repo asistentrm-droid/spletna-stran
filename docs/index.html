@@ -1,239 +1,337 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Asistent RM</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Asistent RM</title>
 
-<style>
-* { box-sizing: border-box; }
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-body {
-  margin: 0;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-  background: #ffffff;
-  color: #111;
-}
+    body {
+      margin: 0;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: #ffffff;
+      color: #111;
+    }
 
-a { text-decoration: none; color: inherit; }
+    a { text-decoration: none; color: inherit; }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-/* NAV */
-header {
-  border-bottom: 1px solid #eee;
-  padding: 20px 0;
-}
+    /* NAV */
+    header {
+      border-bottom: 1px solid #eee;
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(14px);
+      z-index: 10;
+    }
 
-header img {
-  height: 60px;
-}
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
 
-/* HERO */
-.hero {
-  padding: 90px 0 50px 0;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
 
-h1 {
-  font-size: 42px;
-  line-height: 1.1;
-  margin-bottom: 15px;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-}
+    .brand img {
+      height: 56px; /* večji logo */
+      width: auto;
+      display: block;
+    }
 
-.subtitle {
-  font-size: 17px;
-  opacity: 0.7;
-  margin-bottom: 30px;
-  max-width: 600px;
-}
+    .brand-name {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 240px;
+    }
 
-.btn {
-  display: inline-block;
-  padding: 14px 24px;
-  border-radius: 999px;
-  background: #111;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-}
+    nav a {
+      margin-left: 18px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+    nav a:hover { opacity: 1; }
 
-/* GRAFIKA */
-.graphic {
-  margin: 80px 0 30px 0;
-  border-radius: 28px;
-  overflow: hidden;
-}
+    /* HERO */
+    .hero {
+      padding: 86px 0 42px 0;
+    }
 
-.graphic img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+    h1 {
+      font-size: 44px;
+      line-height: 1.08;
+      margin: 0 0 14px 0;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+    }
 
-/* QUOTE */
-.quote {
-  margin-top: 40px;
-  font-style: italic;
-  font-weight: 600;
-  font-size: 20px;
-  opacity: 0.8;
-  border-left: 3px solid #111;
-  padding-left: 20px;
-  max-width: 600px;
-}
+    .subtitle {
+      font-size: 17px;
+      opacity: 0.7;
+      margin: 0 0 26px 0;
+      max-width: 640px;
+      line-height: 1.55;
+    }
 
-footer {
-  margin-top: 120px;
-  padding: 30px 0;
-  border-top: 1px solid #eee;
-  font-size: 12px;
-  opacity: 0.5;
-}
-</style>
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 999px;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* GRAFIKA */
+    .graphic {
+      margin: 70px 0 22px 0;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+
+    .graphic img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* QUOTE */
+    .quote {
+      margin-top: 24px;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 18px;
+      opacity: 0.85;
+      border-left: 3px solid #111;
+      padding-left: 18px;
+      max-width: 720px;
+    }
+
+    /* FORM SECTION */
+    .offer-wrap {
+      margin: 140px 0 90px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .offer-card {
+      width: 100%;
+      max-width: 520px;
+      border: 1px solid #eee;
+      border-radius: 28px;
+      padding: 40px 30px;
+      background: #fff;
+    }
+
+    .offer-card h2 {
+      text-align: center;
+      font-size: 26px;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.01em;
+    }
+
+    .offer-card p {
+      text-align: center;
+      opacity: 0.6;
+      margin: 0 0 28px 0;
+      line-height: 1.5;
+    }
+
+    .offer-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .offer-form input,
+    .offer-form textarea {
+      padding: 12px;
+      border: 1px solid #eee;
+      border-radius: 14px;
+      font-size: 14px;
+      outline: none;
+      background: #fff;
+      color: #111;
+      font-family: inherit;
+    }
+
+    .offer-form input:focus,
+    .offer-form textarea:focus {
+      border-color: rgba(17,17,17,0.35);
+    }
+
+    .offer-form textarea {
+      min-height: 120px; /* manjši kot prej */
+      resize: vertical;
+    }
+
+    .submit-btn {
+      margin-top: 8px;
+      padding: 14px;
+      border: none;
+      border-radius: 999px;
+      background: #111;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .submit-btn[disabled] {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .status {
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.65;
+      margin-top: 10px;
+      min-height: 16px;
+    }
+
+    footer {
+      margin-top: 90px;
+      padding: 26px 0;
+      border-top: 1px solid #eee;
+      font-size: 12px;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 700px) {
+      h1 { font-size: 36px; }
+      .offer-card { padding: 34px 22px; }
+      .brand img { height: 50px; }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container">
-    <img src="logo-rm.png" alt="Asistent RM">
-  </div>
-</header>
+  <header>
+    <div class="container nav-row">
+      <div class="brand">
+        <img src="logo-rm.png" alt="Asistent RM">
+        <div class="brand-name">Asistent RM</div>
+      </div>
 
-<section class="hero container">
-  <h1>Asistent RM</h1>
-  <div class="subtitle">
-    Virtualna telefonska tajnica.
-    Prevzame klice odgovori na vprašanja in termine samodejno doda v vaš koledar.
-  </div>
-  <a href="#ponudba" class="btn">Začni svojo pot</a>
+      <nav>
+        <a href="#ponudba">Ponudba</a>
+        <a href="kontakti.html">Kontakti</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="graphic">
-    <img src="grafika1.png" alt="Grafika procesa">
-  </div>
+  <main class="container">
+    <section class="hero">
+      <h1>Asistent RM</h1>
+      <p class="subtitle">Virtualna telefonska tajnica.
+        Prevzame klice odgovori na vprašanja in termine samodejno doda v vaš koledar.</p>
 
-  <div class="quote">
-   “Največje tveganje je, da ne tvegaš.”
-— Mark Zuckerberg
-  </div>
-</section>
-<section 
+      <a href="#ponudba" class="btn">Pošlji povpraševanje</a>
 
-    <section id="ponudba" style="margin:140px 0; display:flex; justify-content:center;">
+      <div class="graphic">
+        <img src="grafika1.png" alt="Grafika procesa">
+      </div>
 
-  <div style="
-      width:100%;
-      max-width:520px;
-      border:1px solid #eee;
-      border-radius:28px;
-      padding:40px 30px;
-  ">
+      <div class="quote">
+        “The biggest risk is not taking any risk.” — Mark Zuckerberg
+      </div>
+    </section>
 
-    <h2 style="text-align:center; font-size:26px; margin-bottom:8px;">
-      Pošlji povpraševanje
-    </h2>
+    <!-- OBRAZEC -->
+    <section id="ponudba" class="offer-wrap">
+      <div class="offer-card">
+        <h2>Pošlji povpraševanje</h2>
+        <p>Odgovorimo vam v najkrajšem možnem času.</p>
 
-    <p style="text-align:center; opacity:0.6; margin-bottom:30px;">
-      Odgovorimo vam v najkrajšem možnem času.
-    </p>
+        <!-- ZAMENJAJ action s svojim Formspree URL -->
+        <form id="offerForm" class="offer-form"
+              action="https://formspree.io/f/mkovjydg"
+              method="POST">
 
-    <form action="https://formspree.io/f/XXXXX" method="POST"
-          style="display:flex; flex-direction:column; gap:14px;">
+          <input type="text" name="ime" placeholder="Ime" required>
+          <input type="text" name="priimek" placeholder="Priimek" required>
+          <input type="email" name="email" placeholder="E-mail" required>
+          <input type="tel" name="telefon" placeholder="Telefon" required>
+          <input type="text" name="podjetje" placeholder="Podjetje">
+          <textarea name="sporocilo" placeholder="Sporočilo" required></textarea>
 
-      <input type="hidden" name="_next" value="https://www.asistentrm.org/thank-you.html">
+          <button id="submitBtn" class="submit-btn" type="submit">Pošlji ponudbo</button>
+          <div id="status" class="status"></div>
+        </form>
+      </div>
+    </section>
 
-      <input type="text" name="ime" placeholder="Ime" required
-        style="padding:12px;border:1px solid #eee;border-radius:14px;">
+    <footer>
+      © <span id="year"></span> Asistent RM
+    </footer>
+  </main>
 
-      <input type="text" name="priimek" placeholder="Priimek" required
-        style="padding:12px;border:1px solid #eee;border-radius:14px;">
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-      <input type="email" name="email" placeholder="E-mail" required
-        style="padding:12px;border:1px solid #eee;border-radius:14px;">
+    // Formspree submit brez preusmeritve na Formspree
+    const form = document.getElementById("offerForm");
+    const btn = document.getElementById("submitBtn");
+    const statusEl = document.getElementById("status");
 
-      <input type="tel" name="telefon" placeholder="Telefon" required
-        style="padding:12px;border:1px solid #eee;border-radius:14px;">
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-      <input type="text" name="podjetje" placeholder="Podjetje"
-        style="padding:12px;border:1px solid #eee;border-radius:14px;">
+      statusEl.textContent = "";
+      btn.disabled = true;
+      btn.textContent = "Pošiljam...";
 
-      <textarea name="sporocilo" placeholder="Sporočilo" required
-        style="padding:12px;border:1px solid #eee;border-radius:14px;min-height:120px;"></textarea>
+      try {
+        const data = new FormData(form);
 
-      <button type="submit"
-        style="
-          margin-top:10px;
-          padding:14px;
-          border:none;
-          border-radius:999px;
-          background:#111;
-          color:#fff;
-          font-weight:600;
-          cursor:pointer;
-          width:100%;
-        ">
-        Pošlji ponudbo
-      </button>
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
 
-    </form>
+        if (res.ok) {
+          // profesionalno: preusmerimo na tvojo thank you stran
+          window.location.href = "/thank-you.html";
+          return;
+        }
 
-  </div>
-
-</section>
-
-  </div>
-
-</section>
-
-  <h2 style="font-size:28px; margin-bottom:10px;">Začni pot z nami!</h2>
-  <p style="opacity:0.6; margin-bottom:30px;">
-    Odgovorimo vam v najkrajšem možnem času.
-  </p>
-
-  <form action="https://formspree.io/f/mkovjydg" method="POST" style="display:flex; flex-direction:column; gap:15px;">
-
-    <input type="text" name="ime" placeholder="Ime" required
-      style="padding:14px;border:1px solid #eee;border-radius:16px;">
-
-    <input type="text" name="priimek" placeholder="Priimek" required
-      style="padding:14px;border:1px solid #eee;border-radius:16px;">
-
-    <input type="email" name="email" placeholder="E-mail" required
-      style="padding:14px;border:1px solid #eee;border-radius:16px;">
-
-    <input type="tel" name="telefon" placeholder="Telefon" required
-      style="padding:14px;border:1px solid #eee;border-radius:16px;">
-
-    <input type="text" name="podjetje" placeholder="Podjetje"
-      style="padding:14px;border:1px solid #eee;border-radius:16px;">
-
-    <textarea name="sporocilo" placeholder="Sporočilo" required
-      style="padding:14px;border:1px solid #eee;border-radius:16px;min-height:180px;"></textarea>
-
-    <button type="submit"
-      style="padding:14px;border:none;border-radius:999px;background:#111;color:#fff;font-weight:600;cursor:pointer;">
-      Pošlji
-    </button>
-
-  </form>
-
-</section>
-
-<footer>
-  <div class="container">
-    © <span id="year"></span> Asistent RM
-  </div>
-</footer>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+        // če ni ok, poskusimo prebrati json (ni nujno)
+        statusEl.textContent = "Prišlo je do napake. Poskusite ponovno.";
+      } catch (err) {
+        statusEl.textContent = "Prišlo je do napake. Preverite povezavo in poskusite ponovno.";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Pošlji ponudbo";
+      }
+    });
+  </script>
 
 </body>
 </html>
