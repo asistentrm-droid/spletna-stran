@@ -10,161 +10,122 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, system-ui, sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text", sans-serif;
   background: #ffffff;
   color: #111;
 }
 
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 /* NAV */
 header {
-  padding: 18px 24px;
   border-bottom: 1px solid #eee;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 20px 0;
 }
 
 header img {
-  height: 46px;   /* večji logo */
-}
-
-nav a {
-  margin-left: 20px;
-  font-size: 14px;
-  opacity: 0.7;
-}
-
-nav a:hover {
-  opacity: 1;
+  height: 60px;
 }
 
 /* HERO */
 .hero {
-  max-width: 1100px;
-  margin: 80px auto;
-  padding: 0 24px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+  padding: 90px 0 50px 0;
 }
 
 h1 {
-  font-size: 36px;
-  line-height: 1.15;
-  margin-bottom: 18px;
+  font-size: 42px;
+  line-height: 1.1;
+  margin-bottom: 15px;
   letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: 17px;
   opacity: 0.7;
-  margin-bottom: 28px;
+  margin-bottom: 30px;
+  max-width: 600px;
 }
 
 .btn {
   display: inline-block;
-  padding: 12px 22px;
+  padding: 14px 24px;
   border-radius: 999px;
   background: #111;
   color: #fff;
   font-size: 14px;
-}
-
-/* PROCESS BOX */
-.process {
-  border: 1px solid #eee;
-  border-radius: 24px;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.steps {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  margin-bottom: 30px;
-  font-size: 14px;
-}
-
-.circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 1px solid #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.circle.logo {
-  background: #111;
-  color: #fff;
-  border: none;
   font-weight: 600;
-  font-size: 18px;
 }
 
-/* PLACEHOLDER ZA SLIKO */
-.placeholder {
-  height: 200px;
-  border: 1px dashed #ccc;
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.5;
-  font-size: 13px;
+/* GRAFIKA */
+.graphic {
+  margin: 80px 0 30px 0;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.graphic img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* QUOTE */
+.quote {
+  margin-top: 40px;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 20px;
+  opacity: 0.8;
+  border-left: 3px solid #111;
+  padding-left: 20px;
+  max-width: 600px;
 }
 
 footer {
-  margin-top: 80px;
-  padding: 20px;
-  text-align: center;
+  margin-top: 120px;
+  padding: 30px 0;
+  border-top: 1px solid #eee;
   font-size: 12px;
   opacity: 0.5;
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <img src="logo-rm.png" alt="Asistent RM">
-  <nav>
-    <a href="/">Domov</a>
-    <a href="kontakti.html">Kontakti</a>
-  </nav>
+  <div class="container">
+    <img src="asistentrm-logo.png" alt="Asistent RM">
+  </div>
 </header>
 
-<section class="hero">
+<section class="hero container">
+  <h1>Virtualna telefonska tajnica.</h1>
+  <div class="subtitle">
+    Prevzamemo klice in uredimo vaš koledar.
+  </div>
+  <a href="#ponudba" class="btn">Pošlji povpraševanje</a>
 
-  <div>
-    <h1>Klice prevzamemo mi.<br>Termini so v vašem koledarju.</h1>
-    <div class="subtitle">
-      Virtualna telefonska tajnica za podjetja, ki želijo mir in urejen urnik.
-    </div>
-    <a href="kontakti.html" class="btn">Začnimo</a>
+  <div class="graphic">
+    <img src="grafika1.png" alt="Grafika procesa">
   </div>
 
-  
-    <!-- PROSTOR ZA JUTRIŠNJO SLIKO -->
-    <div class="placeholder">
-     
-    </div>
+  <div class="quote">
+    "V času, ko se svet tako hitro spreminja, je najslabše, kar lahko narediš, da ne tvegaš." — Mark Zuckerberg
   </div>
-
 </section>
 
 <footer>
-© <span id="year"></span> Asistent RM 
+  <div class="container">
+    © <span id="year"></span> Asistent RM
+  </div>
 </footer>
 
 <script>
@@ -173,5 +134,6 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 </body>
 </html>
+
 
 
