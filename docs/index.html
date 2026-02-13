@@ -123,16 +123,69 @@ footer {
 — Mark Zuckerberg
   </div>
 </section>
-<section id="ponudba" style="margin:140px auto; max-width:700px; padding:0 20px;">
+<section 
 
-  <div style="border:1px solid #eee; border-radius:28px; padding:40px 30px;">
+    <section id="ponudba" style="margin:140px 0; display:flex; justify-content:center;">
 
-    <h2 style="font-size:28px; margin-bottom:10px;">Pošlji povpraševanje</h2>
-    <p style="opacity:0.6; margin-bottom:30px;">
+  <div style="
+      width:100%;
+      max-width:520px;
+      border:1px solid #eee;
+      border-radius:28px;
+      padding:40px 30px;
+  ">
+
+    <h2 style="text-align:center; font-size:26px; margin-bottom:8px;">
+      Pošlji povpraševanje
+    </h2>
+
+    <p style="text-align:center; opacity:0.6; margin-bottom:30px;">
       Odgovorimo vam v najkrajšem možnem času.
     </p>
 
-    <!-- tukaj ostane tvoj form -->
+    <form action="https://formspree.io/f/XXXXX" method="POST"
+          style="display:flex; flex-direction:column; gap:14px;">
+
+      <input type="hidden" name="_next" value="https://www.asistentrm.org/thank-you.html">
+
+      <input type="text" name="ime" placeholder="Ime" required
+        style="padding:12px;border:1px solid #eee;border-radius:14px;">
+
+      <input type="text" name="priimek" placeholder="Priimek" required
+        style="padding:12px;border:1px solid #eee;border-radius:14px;">
+
+      <input type="email" name="email" placeholder="E-mail" required
+        style="padding:12px;border:1px solid #eee;border-radius:14px;">
+
+      <input type="tel" name="telefon" placeholder="Telefon" required
+        style="padding:12px;border:1px solid #eee;border-radius:14px;">
+
+      <input type="text" name="podjetje" placeholder="Podjetje"
+        style="padding:12px;border:1px solid #eee;border-radius:14px;">
+
+      <textarea name="sporocilo" placeholder="Sporočilo" required
+        style="padding:12px;border:1px solid #eee;border-radius:14px;min-height:120px;"></textarea>
+
+      <button type="submit"
+        style="
+          margin-top:10px;
+          padding:14px;
+          border:none;
+          border-radius:999px;
+          background:#111;
+          color:#fff;
+          font-weight:600;
+          cursor:pointer;
+          width:100%;
+        ">
+        Pošlji ponudbo
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
 
   </div>
 
